@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+    <head>
+        <title>WeatherMap</title>
+        <!-- Css includes -->
+        <link rel="stylesheet" type="text/css" href="css/site.css" />
+
+        <!-- External and vendor scripts -->
+        <link rel="stylesheet" type="text/css" href="css/vendor/jquery-ui-1.8.18.custom.css" />
+    </head>
+    <body>
+        <div id="main-container">
+            <h1><em>Weather</em>Map</h1>
+
+            <!-- Main Google Maps container -->
+            <div id="map-container"></div>
+
+            <!-- Information container. Updated when the map is clicked -->
+            <section id="info-container">
+                <article>
+                    <label>Current Location: </label>
+                    <span id="location"></span>
+                </article>
+                <article>
+                    <label>Show weather for: </label>
+                </article>
+                <article id="dropdown-container">Loading...</article>
+                <article id="weather-info-container"></article>
+            </section>
+
+            <!-- Dialog containers -->
+            <div id="dialog-containers" class="hidden">
+                <div id="intro-dialog">
+                    <h1>Hi there!</h1>
+                    <p class="info">
+                        This map makes it easy to find weather forecasts for almost anywhere in the world.
+                        Just click on the map to get started!
+                    </p>
+                    <input type="checkbox" id="never-again" />Don't show this again<br/>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info container for arbitrary links -->
+        <div id="link-container">
+            <a href="test/index.html">Unit test suite</a>
+        </div>
+
+        <!-- Underscore.js templates. Would be stored in .html files if require.js or similar was used. -->
+        <div id="template-containers" class="hidden">
+            <textarea id="template-weather-option">
+                <option data-id='<%= id %>'><%= from %><% if (from !== to) { %> to <%= to %> <% } %></option>
+            </textarea>
+            <textarea id="template-weather-info">
+                <article>
+                    <label>Precipitation: </label>
+                    <span><%= precipitation.value %><%= precipitation.unit %></span>
+                </article>
+                <article>
+                    <label>Temperature: </label>
+                    <span><%= temperature.value %>&#176; <%= temperature.unit %></span>
+                </article>
+                <article>
+                    <label>Wind Direction: </label>
+                    <span><%= windDirection.value %>&#176; <%= windDirection.name %></span>
+                </article>
+                <article>
+                    <label>Wind Speed: </label>
+                    <span><%= windSpeed.mps %> mps</span>
+                </article>
+                <article>
+                    <label>Humidity: </label>
+                    <span><%= humidity.value %>&#37;</span>
+                </article>
+                <article>
+                    <label>Pressure: </label>
+                    <span><%= pressure.value %> <%= pressure.unit %></span>
+                </article>
+                <article><img src='<%= url %>' /></article>
+            </textarea>
+        </div>
+
+
+        <!-- External and vendor scripts -->
+        <script type="text/javascript" src="js/vendor/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="js/vendor/jquery-ui-1.8.18.custom.js"></script>
+        <script type="text/javascript" src="js/vendor/jquery.ui.core.js"></script>
+        <script type="text/javascript" src="js/vendor/jquery.ui.position.js"></script>
+        <script type="text/javascript" src="js/vendor/jquery.ui.widget.js"></script>
+        <script type="text/javascript" src="js/vendor/jquery.ui.dialog.js"></script>
+        <script type="text/javascript" src="js/vendor/jquery.effects.core.js"></script>
+        <script type="text/javascript" src="js/vendor/jquery.effects.fade.js"></script>
+        <script type="text/javascript" src="js/vendor/underscore-min.js"></script>
+        <script type="text/javascript" src="js/vendor/backbone-min.js"></script>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC2SD_z89khRTDc_ibBwAZr3tkuEjgjWnw&sensor=false"></script>
+
+        <!-- Other scripts -->
+        <script type="text/javascript" src="js/site.js"></script>
+        <script type="text/javascript" src="js/controller/index.js"></script>
+        <script type="text/javascript" src="js/view/map.js"></script>
+        <script type="text/javascript" src="js/view/information.js"></script>
+        <script type="text/javascript" src="js/model/location.js"></script>
+        <script type="text/javascript" src="js/model/weather.js"></script>
+        <script type="text/javascript" src="js/model/symbol.js"></script>
+        <script type="text/javascript" src="js/collection/weather.js"></script>
+        <script type="text/javascript" src="js/page/index.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="http://code.jquery.com/qunit/git/qunit.css" type="text/css" media="screen" />
+    <title>WeatherMap Unit Test Suite</title>
+</head>
+<body>
+    <h1 id="qunit-header">WeatherMap Unit Test Suite</h1>
+    <h2 id="qunit-banner"></h2>
+    <div id="qunit-testrunner-toolbar"></div>
+    <h2 id="qunit-userAgent"></h2>
+    <ol id="qunit-tests"></ol>
+    <div id="qunit-fixture"></div>
+
+    <!-- Underscore.js templates. Would be stored in .html files if require.js or similar was used. -->
+    <div id="template-containers" style="display:none;">
+        <textarea id="template-weather-option">
+            <option data-id='<%= id %>'><%= from %><% if (from !== to) { %> to <%= to %> <% } %></option>
+        </textarea>
+        <textarea id="template-weather-info">
+            <article>
+                <label>Precipitation: </label>
+                <span><%= precipitation.value %><%= precipitation.unit %></span>
+            </article>
+            <article>
+                <label>Temperature: </label>
+                <span><%= temperature.value %>&#176; <%= temperature.unit %></span>
+            </article>
+            <article>
+                <label>Wind Direction: </label>
+                <span><%= windDirection.value %>&#176; <%= windDirection.name %></span>
+            </article>
+            <article>
+                <label>Wind Speed: </label>
+                <span><%= windSpeed.mps %> mps</span>
+            </article>
+            <article>
+                <label>Humidity: </label>
+                <span><%= humidity.value %>&#37;</span>
+            </article>
+            <article>
+                <label>Pressure: </label>
+                <span><%= pressure.value %> <%= pressure.unit %></span>
+            </article>
+            <article><img src='<%= url %>' /></article>
+        </textarea>
+    </div>
+
+    <!-- External and vendor scripts -->
+    <script type="text/javascript" src="../js/vendor/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../js/vendor/jquery-ui-1.8.18.custom.js"></script>
+    <script type="text/javascript" src="../js/vendor/jquery.ui.core.js"></script>
+    <script type="text/javascript" src="../js/vendor/jquery.ui.position.js"></script>
+    <script type="text/javascript" src="../js/vendor/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="../js/vendor/jquery.ui.dialog.js"></script>
+    <script type="text/javascript" src="../js/vendor/jquery.effects.core.js"></script>
+    <script type="text/javascript" src="../js/vendor/jquery.effects.fade.js"></script>
+    <script type="text/javascript" src="../js/vendor/underscore-min.js"></script>
+    <script type="text/javascript" src="../js/vendor/backbone-min.js"></script>
+
+    <!-- Other scripts -->
+    <script type="text/javascript" src="../js/site.js"></script>
+    <script type="text/javascript" src="../js/controller/index.js"></script>
+    <script type="text/javascript" src="../js/view/map.js"></script>
+    <script type="text/javascript" src="../js/view/information.js"></script>
+    <script type="text/javascript" src="../js/model/location.js"></script>
+    <script type="text/javascript" src="../js/model/weather.js"></script>
+    <script type="text/javascript" src="../js/model/symbol.js"></script>
+    <script type="text/javascript" src="../js/collection/weather.js"></script>
+
+    <!-- Unit test scripts  -->
+    <script type="text/javascript" src="http://code.jquery.com/qunit/git/qunit.js"></script>
+    <script type="text/javascript" src="vendor/jquery.mockjax.js"></script>
+    <script type="text/javascript" src="collection/weather.test.js"></script>
+    <script type="text/javascript" src="model/location.test.js"></script>
+    <script type="text/javascript" src="model/symbol.test.js"></script>
+    <script type="text/javascript" src="model/weather.test.js"></script>
+    <script type="text/javascript" src="view/information.test.js"></script>
+    <script type="text/javascript" src="view/map.test.js"></script>
+    <script type="text/javascript" src="test.js"></script>
+</body>
+</html>
